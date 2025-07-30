@@ -36,47 +36,27 @@ In today's competitive job market, efficiently finding the right opportunities i
 ## 3. Pipeline Overview
 1. Library Setup: Imports essential libraries including pandas, transformers, scikit-learn, and supporting NLP/embedding utilities.
 2. Model Loading: Loads a pre-trained SentenceTransformer model (all-MiniLM-L6-v2 or similar) for generating dense vector embeddings.
-3. Data Loading:
-- Loads job descriptions from a CSV file.
-- Extracts text from a user-uploaded CV (PDF format).
+3. Data Loading: i. Loads job descriptions from a CSV file. ii. Extracts text from a user-uploaded CV (PDF format).
 4. Embedding Generation: Computes vector embeddings for both the extracted CV text and each job description using the loaded SentenceTransformer.
 5. Semantic Scoring: Calculates cosine similarity between the CV vector and each job description vector to quantify content relevance and contextual overlap. A semantic similarity score is then derived.
-6. Skill Extraction with NER and Skills Scoring:
-- Applies a fine-tuned Hugging Face NER model (algiraldohe/lm-ner-linkedin-skills-recognition) to identify and extract technical, technology-related, and soft skills from both the CV and job descriptions.
-- Compares the extracted skills and computes a skill match score based on overlapping and missing skills.
+6. Skill Extraction with NER and Skills Scoring: i. Applies a fine-tuned Hugging Face NER model (algiraldohe/lm-ner-linkedin-skills-recognition) to identify and extract technical, technology-related, and soft skills from both the CV and job descriptions. ii. Compares the extracted skills and computes a skill match score based on overlapping and missing skills.
 7. Final Weighted Score: A composite weighted score is calculated, applying a 90% weight to the semantic similarity score and a 10% weight to the skills score. This weighting scheme ensures that the overall results reflect both broad contextual fit and specific technical skill alignment.
 8. LLM-powered Written Feedback: Leverages the Gemini API to generate detailed written feedback. This feedback includes insights into the semantic fit, suggestions for improving the CV's relevance to specific job descriptions, and areas where the user can highlight or develop skills to enhance future scores.
 
 ## 4.  Installation
 To get started with SmartMatch, follow these steps:
-
-Clone the repository:
-
-Bash
-
+- Clone the repository:
 git clone https://github.com/your-username/smartmatch.git
 cd smartmatch
-Create a virtual environment (recommended):
-
-Bash
-
+- Create a virtual environment (recommended):
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Install the required libraries:
-
-Bash
-
+- Install the required libraries:
 pip install -r requirements.txt
 Note: Ensure you have a requirements.txt file listing all dependencies (e.g., pandas, transformers, scikit-learn, sentence-transformers, pypdf, google-generativeai).
-
-Set up your Gemini API Key:
-
+- Set up your Gemini API Key:
 Obtain an API key from Google AI Studio (if you plan to use the LLM feedback feature).
-
-Set it as an environment variable or load it securely within your notebook:
-
-Python
-
+- Set it as an environment variable or load it securely within your notebook:
 import os
 os.environ["GEMINI_API_KEY"] = "YOUR_GEMINI_API_KEY"
 
