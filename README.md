@@ -60,4 +60,6 @@ Obtain an API key from Google AI Studio (if you plan to use the LLM feedback fea
 import os
 os.environ["GEMINI_API_KEY"] = "YOUR_GEMINI_API_KEY"
 
+## Contributing
+Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
 
