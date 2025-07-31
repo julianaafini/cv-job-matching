@@ -46,20 +46,27 @@ In today's competitive job market, efficiently finding the right opportunities i
 ## 4.  Installation
 To get started with SmartMatch, follow these steps:
 - Clone the repository:
+```bash
 git clone https://github.com/your-username/smartmatch.git
 cd smartmatch
+```
 - Create a virtual environment (recommended):
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+```
 - Install the required libraries:
+```bash
 pip install -r requirements.txt
+```
 Note: Ensure you have a requirements.txt file listing all dependencies (e.g., pandas, transformers, scikit-learn, sentence-transformers, pypdf, google-generativeai).
 - Set up your Gemini API Key:
 Obtain an API key from Google AI Studio (if you plan to use the LLM feedback feature).
 - Set it as an environment variable or load it securely within your notebook:
+```python
 import os
 os.environ["GEMINI_API_KEY"] = "YOUR_GEMINI_API_KEY"
-
+```
 ## Contributing
 Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
 
